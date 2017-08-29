@@ -1,0 +1,39 @@
+.chat-button{
+	position: fixed;
+	bottom: 360px;
+	right: 15px;
+}
+.chat-frame{	
+	position: fixed;
+	bottom: 15px;
+	right: 70px;
+	border: 1px solid #A0A9B1;
+	border-radius: 8px;
+	background: #FFF;
+}
+.chat-header{
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px 20px;
+	margin: 0 0;
+	background: #CF6F55;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	resize: none;
+}
+.chat-input{
+	border-radius: 3px;
+	width: 240px;
+	height: 50px;
+	border: 1px solid #A0A9B1;
+	margin: 4px;
+	resize: none;
+	font-family: 'Raleway', Helvetica, Ubuntu, sans-serif; 
+}
+.chat-window{
+	text-align: left;
+	font-family: 'Raleway', Helvetica, Ubuntu, sans-serif; 
+    background: #FFF;
+    height: 223px;
+    width: 252px;
+}
