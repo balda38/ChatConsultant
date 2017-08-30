@@ -1,7 +1,22 @@
+.buy-button{
+	color: white;
+	padding: .5em 2em;
+	border: 1px solid #A0A9B1;
+	border-radius: 6px;
+	background: #CF6F55;
+	transition: 0.2s;
+} 
+.buy-button:hover{ 
+	background: #E54B4B; 
+	cursor: pointer;
+}
 .chat-button{
 	position: fixed;
 	bottom: 360px;
 	right: 15px;
+}
+.chat-button:hover{ 
+cursor: pointer;
 }
 .chat-frame{	
 	position: fixed;
@@ -22,18 +37,51 @@
 	resize: none;
 }
 .chat-input{
+	position: fixed;
+	bottom: 5px;
 	border-radius: 3px;
 	width: 240px;
-	height: 50px;
+	height: 40px;
 	border: 1px solid #A0A9B1;
 	margin: 4px;
 	resize: none;
-	font-family: 'Raleway', Helvetica, Ubuntu, sans-serif; 
+	font-family: 'Jura', sans-serif; 
 }
 .chat-window{
-	text-align: left;
-	font-family: 'Raleway', Helvetica, Ubuntu, sans-serif; 
+	box-sizing: border-box;
+	position: fixed;
+	overflow-x: hidden;
+	overflow-y: auto;
     background: #FFF;
-    height: 223px;
-    width: 252px;
+    height: 213px;
+    width: 242px;
 }
+.message-cloud{	
+	box-sizing: border-box;
+	float: left;
+	margin: 10px;
+    padding: 0px 5px;
+	text-align: left;
+	display: none;
+	font-family: 'Jura', sans-serif; 
+    background: #7397D4;
+	border: 1px solid #A0A9B1;
+	border-radius: 6px;
+}
+ul.clear{
+	list-style-type: none;
+	text-align: left; 
+	margin-left: 0;
+	padding-left: 0;}
+	ul.clear li {
+		box-sizing: border-box;
+		float: left;
+		margin: 10px;
+		padding: 0px 5px;
+		display: none;
+		text-align: left;
+		font-family: 'Jura', sans-serif;
+		background: #4DEFA9	;
+		border: 1px solid #A0A9B1;
+		border-radius: 6px;
+	}

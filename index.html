@@ -6,76 +6,41 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<h1 style="text-align: center">Hello!</h1>
-	<p style="text-align: center">It's your smartphones online-consultant</p>
+	<h1 style="text-align: center">Супер-магазин смартфонов ASUS</h1>
+	<p style="text-align: center">Найди то, что хочешь</p>
 	
 	<br><br><br>
 	
-	<h2 style="text-align: center">Here you can get information on ASUS smartphones</h2>
+	<h2 style="text-align: center">Здесь ты сможешь получить информацию о смартфонах ASUS и приобрести свой</h2>
 	
 	<br><br><br>
 	
 	<table class="table">
 			<tr>
 				<td style="width:25%">
-					<h3 style="text-align: center">Zenfone 2 ZE551ML</h3>
-					<p align="center"><img src="images/ze551ml.jpg" width="130" height="250"></p>
-					<ul>
-						<li>Processor: Intel Atom Z3580 (64-bit, 4 Cores, 2.3 GHz)
-						<li>Ram: 2-4 Gb
-						<li>Memory: 16-64 Gb
-						<li>Battery: 3000 mAh
-						<li>Camera: 13MPx, autofocus
-						<li>Display: 5.5" 1920x1080 IPS
-						<li>Other: 4G LTE, Dual-SIM, Slot for microSD card, 170g
-					</ul>
+					<smartphone-directive name="Zenfone 2 ZE551ML" img-path="images/ze551ml.jpg" processor="Intel Atom Z3580 (64-бит, 4 ядра, 2.3 ГГц)" 
+					ram="4 Гб" memory="64 Гб" battery="3000 мА/ч" camera="13Мп, автофокус" display="5.5" 1920x1080 IPS" other="4G LTE, Dual-SIM, слот для microSD карты, 170г" 
+					price="23990"></smartphone-directive>
 				</td>
 				<td style="width:25%">
-					<h3 style="text-align: center">ZenFone 3 MAX ZC520TL</h3>
-					<p align="center"><img src="images/zc520tl.jpg" width="130" height="250"></p>
-					<ul>
-						<li>Processor: MediaTek MT6737T (64-bit, 4 Cores, 1.4 GHz)
-						<li>Ram: 2 Gb
-						<li>Memory: 16-32 Gb
-						<li>Battery: 4130 mAh
-						<li>Camera: 13MPx, autofocus
-						<li>Display: 5.2" 1280x720 IPS
-						<li>Other: 4G LTE, Dual-SIM, Slot for microSD card, 148g
-					</ul>
-				</td>
+					<smartphone-directive name="ZenFone 3 MAX ZC520TL" img-path="images/zc520tl.jpg" processor="MediaTek MT6737T (64-бит, 4 ядра, 1.4 ГГц)" 
+					ram="2 Гб" memory="32 Гб" battery="4130 мА/ч" camera="13Мп, автофокус" display="5.2" 1280x720 IPS" other="4G LTE, Dual-SIM, слот для microSD карты, 148г" 
+					price="13590"></smartphone-directive>
+				</td>					
 				<td style="width:25%">
-					<h3 style="text-align: center">ZenFone 4 MAX ZC554KL</h3>
-					<p align="center"><img src="images/zc554kl.jpg" width="130" height="250"></p>
-					<ul>
-						<li>Processor: Qualcomm Snapdragon 425 MSM8917 (64-bit, 4 Cores, 1.4 GHz)
-						<li>Ram: 2 Gb
-						<li>Memory: 8-32 Gb
-						<li>Battery: 5000 mAh
-						<li>Camera: 13MPx, autofocus
-						<li>Display: 5.5" 1280x720 IPS
-						<li>Other: 4G LTE, Dual-SIM, Slot for microSD card, 181g
-					</ul>
-				</td>
+					<smartphone-directive name="ZenFone 4 MAX ZC554KL" img-path="images/zc554kl.jpg" processor="Qualcomm Snapdragon 425 MSM8917 (64-бит, 4 ядра, 1.4 ГГц)" 
+					ram="2 Гб" memory="16 Гб" battery="5000 мА/ч" camera="13Мп, автофокус" display="5.5" 1280x720 IPS" other="4G LTE, Dual-SIM, слот для microSD карты, 181г" 
+					price="13990"></smartphone-directive>
+				</td>					
 				<td style="width:25%">
-					<h3 style="text-align: center">ZenFone 2 Laser ZE601KL</h3>
-					<p align="center"><img src="images/ze601kl.jpg" width="130" height="250"></p>
-					<ul>
-						<li>Processor: Qualcomm Snapdragon 616 MSM8939 (64-bit, 8 Cores, 1.7 GHz)
-						<li>Ram: 2-4 Gb
-						<li>Memory: 8-32 Gb
-						<li>Battery: 3000 mAh
-						<li>Camera: 13MPx, autofocus
-						<li>Display: 6" 1920x1080 IPS
-						<li>Other: 4G LTE, Dual-SIM, Slot for microSD card, 190g
-					</ul>
+					<smartphone-directive name="ZenFone 2 Laser ZE601KL" img-path="images/ze601kl.jpg" processor="Qualcomm Snapdragon 616 MSM8939 (64-бит, 8 ядра, 1.7 ГГц)" 
+					ram="4 Гб" memory="32 Гб" battery="3000 мА/ч" camera="13Мп, автофокус" display="6" 1920x1080 IPS" other="4G LTE, Dual-SIM, слот для microSD карты, 190г" 
+					price="14990"></smartphone-directive>
 				</td>
 			</tr>			
 	</table>
-	<div class="chat-button">
-		<img src="images/arrow.png" width="48px" height="48px">
-	</div>
-	<div class="chat-frame">
-		<iframe src="chat.html" width="254px" height="410px" frameBorder="0"></iframe>
+	<div ng-app="chatConsultant">
+		<frame-directive></frame-directive>
 	</div>
 <script src="bower_components/requirejs/require.js" data-main="js/main"></script>	
 </body>
