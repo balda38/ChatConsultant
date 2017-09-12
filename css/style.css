@@ -1,3 +1,8 @@
+.page-body{
+	position: absolute;
+	left: 10%;
+	width: 80%;
+}
 .buy-button{
 	color: white;
 	padding: .5em 2em;
@@ -16,7 +21,7 @@
 	right: 15px;
 }
 .chat-button:hover{ 
-cursor: pointer;
+	cursor: pointer;
 }
 .chat-frame{	
 	position: fixed;
@@ -52,36 +57,39 @@ cursor: pointer;
 	position: fixed;
 	overflow-x: hidden;
 	overflow-y: auto;
-    background: #FFF;
-    height: 213px;
-    width: 242px;
+	background: #FFF;
+    height: 285px;
+    width: 255px;
 }
-.message-cloud{	
+.user-message-cloud{	
 	box-sizing: border-box;
+	display: block;
+	word-wrap: break-word;
 	float: left;
 	margin: 10px;
     padding: 0px 5px;
 	text-align: left;
-	display: none;
 	font-family: 'Jura', sans-serif; 
-    background: #7397D4;
+    background: #4DEFA9;
+	border: 1px solid #A0A9B1;
+	border-radius: 6px;
+}
+.admin-message-cloud{
+	box-sizing: border-box;
+	display: block;
+	word-wrap: break-word; 
+	float: right; 
+	margin: 10px;
+    padding: 0px 5px;
+	text-align: right; 
+	font-family: 'Jura', sans-serif;
+	background: #7397D4;
 	border: 1px solid #A0A9B1;
 	border-radius: 6px;
 }
 ul.clear{
 	list-style-type: none;
-	text-align: left; 
+	overflow: hidden;
 	margin-left: 0;
-	padding-left: 0;}
-	ul.clear li {
-		box-sizing: border-box;
-		float: left;
-		margin: 10px;
-		padding: 0px 5px;
-		display: none;
-		text-align: left;
-		font-family: 'Jura', sans-serif;
-		background: #4DEFA9	;
-		border: 1px solid #A0A9B1;
-		border-radius: 6px;
-	}
+	padding-left: 0;
+}
