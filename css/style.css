@@ -1,3 +1,8 @@
+.page-body{
+	position: absolute;
+	left: 10%;
+	width: 80%;
+}
 .buy-button{
 	color: white;
 	padding: .5em 2em;
@@ -16,7 +21,7 @@
 	right: 15px;
 }
 .chat-button:hover{ 
-cursor: pointer;
+	cursor: pointer;
 }
 .chat-frame{	
 	position: fixed;
