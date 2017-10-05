@@ -33,6 +33,7 @@ define(function(){
 					    if (msg.value != "") {
 					        var li = document.createElement('li');
 					        var br = document.createElement('br');
+					        br.setAttribute('style', 'clear: both');
 					        li.setAttribute('class', 'user-message-cloud');
 					        li.appendChild(document.createTextNode(msg.value));
 					        ul.appendChild(li);
