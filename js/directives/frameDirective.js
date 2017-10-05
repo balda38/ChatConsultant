@@ -10,7 +10,7 @@ define(function(){
 					"<img src='images/arrow.png' ng-click='hideChatWindow()'></img>" +
 				"</div>" +
 				"<div class='chat-frame' id='chatFrame'>" +
-					"<iframe src='views/chat.html' width='254px' height='410px' frameBorder='0'></iframe>" +
+					"<iframe src='views/chat.html' frameBorder='0'></iframe>" +
 				"</div>",
 			scope:{},
 			controller: function($scope, $attrs){											
