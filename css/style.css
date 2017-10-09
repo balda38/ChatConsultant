@@ -23,7 +23,9 @@
 .chat-button:hover{ 
 	cursor: pointer;
 }
-.chat-frame{	
+.chat-frame iframe{		
+	width: 16%;
+	height: 50%;
 	position: fixed;
 	bottom: 15px;
 	right: 70px;
@@ -37,16 +39,14 @@
 	padding: 10px 20px;
 	margin: 0 0;
 	background: #CF6F55;
-	border-top-left-radius: 8px;
-	border-top-right-radius: 8px;
 	resize: none;
 }
 .chat-input{
-	position: fixed;
+	position: absolute;
 	bottom: 5px;
 	border-radius: 3px;
-	width: 240px;
-	height: 40px;
+	width: 94%;
+	height: 10%;
 	border: 1px solid #A0A9B1;
 	margin: 4px;
 	resize: none;
@@ -54,12 +54,12 @@
 }
 .chat-window{
 	box-sizing: border-box;
-	position: fixed;
+	position: absolute;
 	overflow-x: hidden;
 	overflow-y: auto;
 	background: #FFF;
-    height: 285px;
-    width: 255px;
+    height: 70%;
+    width: 100%;
 }
 .user-message-cloud{	
 	box-sizing: border-box;
