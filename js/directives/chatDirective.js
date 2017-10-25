@@ -14,15 +14,20 @@ define(function(){
 						"</tr>" +				
 					"</table>" +		
 				"</div>" +	
-				"<div class='chat-window'>" +	
-					"<ul id='messages' class='clear'>" +
-						"<li class='admin-message-cloud'>Здравствуйте!</li>" +
-						"<br><br>" +
-					"</ul>" +					
-				"</div>" +
-				"<form>" +
-					"<textarea ng-keydown='sendMessage($event)' id='userMessage' type='text' class='chat-input' placeholder='Введите ваше сообщение здесь и нажмите Enter...' ></textarea>" +
-				"</form>",
+				"<div class='chat-window'>" +
+                    "<div id='chat1'>" +
+                        "Напишите, пожалуйста, как мы к Вам можем обращаться" +
+                        "<input id='userName' type='text'>" +
+                        "<button ng-click='goChat()'>Ок</button>" +
+                    "</div>" +
+                    "<div id='chat2' class='chat-with-user'>" +
+					    "<ul id='messages' class='clear'>" +
+						    "<li class='admin-message-cloud'>Здравствуйте!</li>" +
+						    "<br><br>" +
+					    "</ul>" +					    
+                    "</div>" +
+			    "</div>"+
+                "<textarea ng-keydown='sendMessage($event)' id='userMessage' type='text' class='chat-input' placeholder='Введите ваше сообщение здесь и нажмите Enter...' ></textarea>",
 			scope:{},
 			controller: function($scope, $attrs){		
 				var msg = document.getElementById('userMessage');
@@ -43,6 +48,15 @@ define(function(){
 					    };
 					};
 				};
+
+				$scope.goChat = function () {
+				    if (document.getElementById("userName").value != ""){
+				        var chat1 = document.getElementById("chat1");
+				        chat1.parentNode.removeChild(chat1);
+				        document.getElementById("chat2").style.opacity = "1";
+				        document.getElementById("userMessage").style.opacity = "1";
+				    }				    
+				}
 			},
 			link: function (scope, element, attrs) {					
 			}	

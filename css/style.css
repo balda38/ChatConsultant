@@ -41,6 +41,9 @@
 	background: #CF6F55;
 	resize: none;
 }
+.chat-with-user {
+    opacity: 0;
+}
 .chat-input{
 	position: absolute;
 	bottom: 5px;
@@ -51,6 +54,7 @@
 	margin: 4px;
 	resize: none;
 	font-family: 'Jura', sans-serif; 
+    opacity: 0;
 }
 .chat-window{
 	box-sizing: border-box;
