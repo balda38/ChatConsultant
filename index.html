@@ -5,45 +5,196 @@
 <link rel="stylesheet" href="bower_components/sculptor/css/sculptor.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-	<div class="page-body">
-		<h1 style="text-align: center">Супер-магазин смартфонов ASUS</h1>
-		<p style="text-align: center">Найди то, что хочешь</p>
-		
-		<br><br><br>	
-	
-		<h2 style="text-align: center">Здесь ты сможешь получить информацию о смартфонах ASUS и приобрести свой</h2>
-		
-		<br><br><br>
-		
-		<table class="table">
-				<tr>
-					<td style="width:25%">
-						<smartphone-directive name="Zenfone 2 ZE551ML" img-path="images/ze551ml.jpg" processor="Intel Atom Z3580 (64-бит, 4 ядра, 2.3 ГГц)" 
-						ram="4 Гб" memory="64 Гб" battery="3000 мА/ч" camera="13Мп, автофокус" display="5.5" 1920x1080 IPS" other="4G LTE, Dual-SIM, слот для microSD карты, 170г" 
-						price="23990"></smartphone-directive>
-					</td>
-					<td style="width:25%">
-						<smartphone-directive name="ZenFone 3 MAX ZC520TL" img-path="images/zc520tl.jpg" processor="MediaTek MT6737T (64-бит, 4 ядра, 1.4 ГГц)" 
-						ram="2 Гб" memory="32 Гб" battery="4130 мА/ч" camera="13Мп, автофокус" display="5.2" 1280x720 IPS" other="4G LTE, Dual-SIM, слот для microSD карты, 148г" 
-						price="13590"></smartphone-directive>
-					</td>					
-					<td style="width:25%">
-						<smartphone-directive name="ZenFone 4 MAX ZC554KL" img-path="images/zc554kl.jpg" processor="Qualcomm Snapdragon 425 MSM8917 (64-бит, 4 ядра, 1.4 ГГц)" 
-						ram="2 Гб" memory="16 Гб" battery="5000 мА/ч" camera="13Мп, автофокус" display="5.5" 1280x720 IPS" other="4G LTE, Dual-SIM, слот для microSD карты, 181г" 
-						price="13990"></smartphone-directive>
-					</td>					
-					<td style="width:25%">
-						<smartphone-directive name="ZenFone 2 Laser ZE601KL" img-path="images/ze601kl.jpg" processor="Qualcomm Snapdragon 616 MSM8939 (64-бит, 8 ядра, 1.7 ГГц)" 
-						ram="4 Гб" memory="32 Гб" battery="3000 мА/ч" camera="13Мп, автофокус" display="6" 1920x1080 IPS" other="4G LTE, Dual-SIM, слот для microSD карты, 190г" 
-						price="14990"></smartphone-directive>
-					</td>
-				</tr>			
-		</table>
+<body onload="slidersChange(0)">
+	<div id="page-body">
+        <main>
+            <header>
+                <div class="header">           
+                    <div class="header-container">
+                        <table class="header-table">
+                            <tr>
+                                <td style="width: 20%;">
+                                    <table>
+                                        <tr class="main-page-button" data-title="Вернуться на главную страницу">                                            
+                                            <td><a href="index.html"><img ng-src='images/main-logo.png' width='40' height='40' style="margin-top: 5px;"></a></td>
+                                            <td><a href="index.html"><h3 class="shop-title">Супер-магазин смартфонов ASUS</h3></a></td>                                            
+                                        </tr>
+                                    </table>                                
+                                </td>
+                                <td style="width: 60%;"><input class="search-input" placeholder="Поиск..." style="width: 100%"></td>
+                                <td style="width: 20%;"><button class='basket-button'><img ng-src='images/basket.png' width='20' height='20'>Корзина</button></td>
+                            </tr>
+                        </table>                    
+                    </div>
+                </div>
+            </header>
+            <br><br><br>            
+
+            <table style="width: 100%; margin-left: -3px;">
+                <tr>
+                    <td style="width: 20%;">
+                        <ul class="shop-sections">
+                            <li style="border-top: 1px solid #DCDCDC;"><span><img style="vertical-align: middle;" ng-src='images/smartphones.png' width='20' height='20'>Смартфоны</span>
+                            <li><span><img style="vertical-align: middle;" ng-src='images/cases.png' width='20' height='20'>Чехлы</span>
+                            <li><span><img style="vertical-align: middle;" ng-src='images/glasses.png' width='20' height='20'>Защитные стекла</span>
+                            <li><span><img style="vertical-align: middle;" ng-src='images/headset.png' width='20' height='20'>Гарнитуры</span>
+                            <li><span><img style="vertical-align: middle;" ng-src='images/sd_card.png' width='20' height='20'>Карты памяти</span>
+                            <li><span><img style="vertical-align: middle;" ng-src='images/battery.png' width='20' height='20'>Зарядки</span>
+                            <li><span><img style="vertical-align: middle;" ng-src='images/other.png' width='20' height='20'>Другие аксессуары</span>
+                        </ul>
+                    </td>
+                    <td style="width: 80%;">
+                        <div id="slider" class="action-slider" style="background-image: url(images/слайд1.jpg);">
+                            <img src="images/nav_left_arrow.png" width="30" height="30" class="nav-left-arrow" onclick="arrowClick(0)">
+                            <div class="switchers">
+                                <label class="radio-container"><input id="switcher1" checked="true" name="changeSlider" class="checkmark" type="radio" onclick="slidersChange(1)"><span class="checkmark"></span></label>
+                                <label class="radio-container"><input id="switcher2" name="changeSlider" class="switcher" type="radio" onclick="slidersChange(2)"><span class="checkmark"></span></label>
+                                <label class="radio-container"><input id="switcher3" name="changeSlider" class="switcher" type="radio" onclick="slidersChange(3)"><span class="checkmark"></span></label>
+                                <label class="radio-container"><input id="switcher4" name="changeSlider" class="switcher" type="radio" onclick="slidersChange(4)"><span class="checkmark"></span></label>
+                            </div>
+                            <img src="images/nav_right_arrow.png" width="30" height="30" class="nav-right-arrow" onclick="arrowClick(1)">
+                        </div>
+                    </td>
+                </tr>
+            </table>		   
+		    
+            <h1 align="center"><i>Лучшие предложения</i></h1>
+
+		    <table class="table">
+				    <tr>
+					    <td style="width:25%">
+						    <smartphone-directive name="Zenfone 2 ZE551ML" img-path="images/ze551ml.jpg" processor="Intel Atom Z3580 (64-бит, 4 ядра, 2.3 ГГц)" 
+						    ram="4 Гб" memory="64 Гб" battery="3000 мА/ч" camera="13Мп, автофокус" display="5.5" 1920x1080 IPS" other="4G LTE, Dual-SIM, слот для microSD карты, 170г" 
+						    price="23990"></smartphone-directive>
+					    </td>
+					    <td style="width:25%">
+						    <smartphone-directive name="ZenFone 3 MAX ZC520TL" img-path="images/zc520tl.jpg" processor="MediaTek MT6737T (64-бит, 4 ядра, 1.4 ГГц)" 
+						    ram="2 Гб" memory="32 Гб" battery="4130 мА/ч" camera="13Мп, автофокус" display="5.2" 1280x720 IPS" other="4G LTE, Dual-SIM, слот для microSD карты, 148г" 
+						    price="13590"></smartphone-directive>
+					    </td>					
+					    <td style="width:25%">
+						    <smartphone-directive name="ZenFone 4 MAX ZC554KL" img-path="images/zc554kl.jpg" processor="Qualcomm Snapdragon 425 MSM8917 (64-бит, 4 ядра, 1.4 ГГц)" 
+						    ram="2 Гб" memory="16 Гб" battery="5000 мА/ч" camera="13Мп, автофокус" display="5.5" 1280x720 IPS" other="4G LTE, Dual-SIM, слот для microSD карты, 181г" 
+						    price="13990"></smartphone-directive>
+					    </td>					
+					    <td style="width:25%">
+						    <smartphone-directive name="ZenFone 2 Laser ZE601KL" img-path="images/ze601kl.jpg" processor="Qualcomm Snapdragon 616 MSM8939 (64-бит, 8 ядра, 1.7 ГГц)" 
+						    ram="4 Гб" memory="32 Гб" battery="3000 мА/ч" camera="13Мп, автофокус" display="6" 1920x1080 IPS" other="4G LTE, Dual-SIM, слот для microSD карты, 190г" 
+						    price="14990"></smartphone-directive>
+					    </td>
+				    </tr>			
+		    </table>
+
+            <br><br><br>
+        </main>
 	</div>
+
+    <footer id="site-footer">
+        <table class="footer-table">
+            <tr>
+                <td>
+                    <h3 align="center">О нас</h3>
+                    <ul class="footer-list" style="border-right: 2px solid #BEBEBE;">
+                        <li><a>Юридическая информация</a>
+                        <li><a>Новости</a>
+                        <li><a>Вакансии</a>
+                        <li><a>Партнерам</a>
+                    </ul>
+                </td>
+                <td>
+                    <h3 align="center">Покупателям</h3>
+                    <ul class="footer-list" style="border-right: 2px solid #BEBEBE;">
+                        <li><a>Бонусная программа</a>
+                        <li><a>Акции</a>
+                        <li><a>Магазины и сервисные центры</a>
+                        <li><a>Доставка</a>
+                    </ul>
+                </td>
+                <td>
+                    <h3 align="center">Мы в соц. сетях</h3>                    
+                    <p align="center"><a href="https://vk.com/"><img style="vertical-align: middle;" ng-src='images/vk.png' width='50' height='50'></a>
+                    <a href="https://www.facebook.com/"><img style="vertical-align: middle;" ng-src='images/fb.png' width='50' height='50'></a></p>
+                    <p align="center"><a href="https://www.twitter.com/"><img style="vertical-align: middle;" ng-src='images/twitter.png' width='50' height='50'></a>
+                    <a href="https://www.youtube.com/"><img style="vertical-align: middle;" ng-src='images/yt.png' width='50' height='50'></a></p>
+                </td>
+                <td>
+                    <h3 align="center">Помощь</h3>
+                    <ul class="footer-list" style="border-left: 2px solid #BEBEBE;">
+                        <li><a>Как оформть заказ</a>
+                        <li><a>Способы оплаты</a>
+                        <li><a>Обмен и возврат товара</a>
+                        <li><a>Гарантийное обслуживание</a>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+        <p class="trademark">© 2017— Компания SuperSmarts</p>
+    </footer>
 	<div ng-app="chatConsultant">
 		<frame-directive></frame-directive>
 	</div>
 <script src="bower_components/requirejs/require.js" data-main="js/main"></script>	
+
+<script>
+    var slider = document.getElementById("slider");
+    var slides = ['images/слайд1.jpg', 'images/слайд2.jpg', 'images/слайд3.jpg', 'images/слайд4.jpg'];
+    var switchers = [document.getElementById("switcher1"), document.getElementById("switcher2"), document.getElementById("switcher3"), document.getElementById("switcher4")];
+    var count = 0;
+    var interval = undefined;
+
+    function slidersChange(slideNum) {
+        switch (slideNum) {
+            case 0:
+                interval = setInterval(changeBG, 6000);
+                break;
+            default:
+                newSlide(slideNum - 2);         
+                break;
+        }
+        
+    }
+
+    function arrowClick(arrowNum) {
+        switch (arrowNum) {
+            case 0:
+                if (count == 0) {
+                    newSlide(2);
+                }
+                else {
+                    newSlide(count - 2);
+                }                
+                break;
+            case 1:
+                newSlide(count);
+                break;
+        }
+        
+    }
+
+    function newSlide(slideNum) {
+        count = slideNum;
+        clearInterval(interval);
+        changeBG();
+        slidersChange(0);
+    }
+    
+    function changeBG() {
+        count++;
+        if (count == slides.length) {
+            count = 0;
+        }
+        slider.setAttribute('class', 'hide-slide');
+        slider.style.backgroundImage = "url(" + slides[count] + ")";
+        if (count == 0) {
+            switchers[3].checked = false;
+        }
+        else {
+            switchers[count - 1].checked = false;
+        }       
+        switchers[count].checked = true;
+        slider.setAttribute('class', 'hide-slide show-slide');        
+    }
+</script>
+
 </body>
 </html>

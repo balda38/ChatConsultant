@@ -977,12 +977,16 @@ p {
   text-indent: 2em; }
 
 a {
-  color: #ee9817;
+  color: #CD6600;
   text-decoration: none;
   transition-property: color;
-  transition-duration: 300ms; }
+  transition-duration: 300ms; 
+  text-decoration: underline;
+}
   a:hover {
-    color: #ad6d0c; }
+    color: #ad6d0c; 
+    text-decoration: none;
+  }
   a:active {
     color: #955e0b; }
 
@@ -1229,6 +1233,7 @@ a {
     padding: 10px 2.5px 5px;
     border-bottom: 3px solid #30499B; }
   .table tr td {
+    vertical-align: top;
     padding: 0px 1px 0px; }
   .table.striped tr:nth-child(even) {
     background-color: #EEEEEE; }
