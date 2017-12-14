@@ -126,10 +126,13 @@ main {
 .top-offer-buttons {
     margin: auto;
     margin-bottom: 5px;
-    margin-left: 6%;
+    width: 100%;    
     position: absolute;
     bottom: 0;
 }
+    .top-offer-buttons tr td {
+        text-align: center;
+    }
 #site-footer {
     position: absolute;
     margin-top: -100px;
