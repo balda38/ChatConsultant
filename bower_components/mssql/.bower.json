@@ -1,0 +1,15 @@
+{
+  "name": "mssql",
+  "homepage": "https://github.com/patriksimek/node-mssql",
+  "version": "4.0.1",
+  "_release": "4.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v4.0.1",
+    "commit": "a8bf45209db64641536a32db239a78324f2e92d3"
+  },
+  "_source": "https://github.com/patriksimek/node-mssql.git",
+  "_target": "^4.0.1",
+  "_originalSource": "mssql",
+  "_direct": true
+}

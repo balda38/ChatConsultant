@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+<title>Обмен и возврат товара</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="../../images/main-logo-small.png">
+<link rel="stylesheet" href="../../bower_components/sculptor/css/sculptor.css">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="pages-body" onload="slidersChange(0)">
+	<div id="page-body">
+        <main>
+            <header>
+                <div class="header">           
+                    <div class="header-container">
+                        <table class="header-table">
+                            <tr>
+                                <td style="width: 20%;">
+                                    <table>
+                                        <tr class="main-page-button" data-title="Вернуться на главную страницу">                                            
+                                            <td><a href="../../index.html"><img ng-src='../../images/main-logo.png' width='40' height='40' style="margin-top: 5px;"></a></td>
+                                            <td><a href="../../index.html"><h3 class="shop-title">Супер-магазин смартфонов ASUS</h3></a></td>                                            
+                                        </tr>
+                                    </table>                                
+                                </td>
+                                <td style="width: 60%;"><input class="search-input" placeholder="Поиск..." style="width: 100%"></td>
+                                <td style="width: 20%;"><basket-directive path="../basket.html"></basket-directive></td>
+                            </tr>
+                        </table>                    
+                    </div>
+                </div>
+            </header>
+            <br><br><br>            
+
+            <table style="width: 100%; margin-left: -3px;">
+                <tr>
+                    <td style="width: 20%; vertical-align: top;">
+                        <ul class="shop-sections">
+                            <li style="border-top: 1px solid #DCDCDC;" onclick="location.href='../shop_sections/smartphones.html'"><span><img style="vertical-align: middle;" ng-src='../../images/nav_menu_sections/smartphones.png' width='20' height='20'>Смартфоны</span>
+                            <li onclick="location.href='../shop_sections/cases.html'"><span><img style="vertical-align: middle;" ng-src='../../images/nav_menu_sections/cases.png' width='20' height='20'>Чехлы</span>
+                            <li onclick="location.href='../shop_sections/glases.html'"><span><img style="vertical-align: middle;" ng-src='../../images/nav_menu_sections/glasses.png' width='20' height='20'>Защитные стекла</span>
+                            <li onclick="location.href='../shop_sections/headset.html'"><span><img style="vertical-align: middle;" ng-src='../../images/nav_menu_sections/headset.png' width='20' height='20'>Гарнитуры</span>
+                            <li onclick="location.href='../shop_sections/cards.html'"><span><img style="vertical-align: middle;" ng-src='../../images/nav_menu_sections/sd_card.png' width='20' height='20'>Карты памяти</span>
+                            <li onclick="location.href='../shop_sections/batterys.html'"><span><img style="vertical-align: middle;" ng-src='../../images/nav_menu_sections/battery.png' width='20' height='20'>Зарядки</span>
+                            <li onclick="location.href='../shop_sections/others.html'"><span><img style="vertical-align: middle;" ng-src='../../images/nav_menu_sections/other.png' width='20' height='20'>Другие аксессуары</span>
+                        </ul>
+                    </td>
+                    <td style="width: 80%;">
+                        <div class="top-offer-small">                            
+                            <p style="padding: 10px; margin-top: 40px; text-align: justify;">
+                                При возникновении технических неисправностей или при получении товара ненадлежащего качества, Вы имеете право обменять товар в нашем магазине, либо получить свои деньги назад.
+                                Для этого Вам необходимо обратиться в любой из наших магазинов.
+                            </p>                
+                        </div>                        
+                    </td>
+                </tr>
+            </table> 		    
+        
+            <br>
+
+        </main>
+	</div>
+
+    <footer id="site-footer">
+        <table class="footer-table">
+            <tr>
+                <td>
+                    <h3 align="center">О нас</h3>
+                    <ul class="footer-list" style="border-right: 2px solid #BEBEBE;">
+                        <li><a href="../about_us/jur_info.html">Юридическая информация</a>
+                        <li><a href="../about_us/news.html">Новости</a>
+                        <li><a href="../about_us/vacancies.html">Вакансии</a>
+                        <li><a href="../about_us/for_partners.html">Партнерам</a>
+                    </ul>
+                </td>
+                <td>
+                    <h3 align="center">Покупателям</h3>
+                    <ul class="footer-list" style="border-right: 2px solid #BEBEBE;">
+                        <li><a href="../for_buyers/bonuses.html">Бонусная программа</a>
+                        <li><a href="../for_buyers/actions.html">Акции</a>
+                        <li><a href="../for_buyers/shops_and_centers.html">Магазины и сервисные центры</a>
+                        <li><a href="../for_buyers/delivery.html">Доставка</a>
+                    </ul>
+                </td>
+                <td>
+                    <h3 align="center">Мы в соц. сетях</h3>                    
+                    <p align="center"><a href="https://vk.com/"><img style="vertical-align: middle;" ng-src='../../images/social/vk.png' width='50' height='50'></a>
+                    <a href="https://www.facebook.com/"><img style="vertical-align: middle;" ng-src='../../images/social/fb.png' width='50' height='50'></a></p>
+                    <p align="center"><a href="https://www.twitter.com/"><img style="vertical-align: middle;" ng-src='../../images/social/twitter.png' width='50' height='50'></a>
+                    <a href="https://www.youtube.com/"><img style="vertical-align: middle;" ng-src='../../images/social/yt.png' width='50' height='50'></a></p>
+                </td>
+                <td>
+                    <h3 align="center">Помощь</h3>
+                    <ul class="footer-list" style="border-left: 2px solid #BEBEBE;">
+                        <li><a href="make_order.html">Как оформть заказ</a>
+                        <li><a href="payment_variants.html">Способы оплаты</a>
+                        <li><a href="product_return.html">Обмен и возврат товара</a>
+                        <li><a href="guarantees.html">Гарантийное обслуживание</a>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+        <p class="trademark">© 2017— Компания SuperSmarts</p>
+    </footer>
+<script src="../../bower_components/requirejs/require.js" data-main="../../js/main"></script>	
+
+</body>
+</html>

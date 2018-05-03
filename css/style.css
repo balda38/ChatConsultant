@@ -101,8 +101,9 @@
     cursor: pointer;
     margin-top: 122px;
 }
-body {
-    height: 100%;
+.pages-body {
+    height: 700px;   
+    position: relative; 
 }
 #page-body{
 	position: relative;
@@ -111,7 +112,7 @@ body {
 	width: 80%;
 }
 main {
-    padding-bottom: 100px;
+    padding-bottom: 15px;
 }
 .top-offers {
     position: relative;
@@ -122,6 +123,7 @@ main {
     margin: auto;
     width: 95%;
     height: 590px;
+    /*color: #1E90FF;*/
 }
 .top-offer-buttons {
     margin: auto;
@@ -133,9 +135,52 @@ main {
     .top-offer-buttons tr td {
         text-align: center;
     }
-#site-footer {
+.top-offer-small{
+    width: 100%;
+    height: 155px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #A0A9B1;
+    background: #F5F5F5;
+    border-radius: 5px;
+    position: relative;
+    text-align: justify;
+    padding-right: 10px;
+    /*color: #1E90FF;*/
+}
+.vacancie{
+    width: 100%;
+    height: 200px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid rgb(206, 176, 131);
+    border-radius: 5px;
+    position: relative;
+    text-align: justify;
+    padding-right: 10px;
+    /*color: #1E90FF;*/
+}
+.shops{
+    position: relative;
+    box-sizing: border-box;
+    background: #F5F5F5;
+    border: 1px solid #A0A9B1;
+    border-radius: 7px;
+    margin: auto;
+    width: 95%;
+    height: 190px;
+    /*color: #1E90FF;*/
+}   
+.news-date{
+    color: #B8860B;
     position: absolute;
-    margin-top: -100px;
+    bottom: 5px;
+    right: 5px;
+}
+#site-footer {
+    position: relative;    
     width: 100%;
     height: 200px;
     background: #D8D5D5; 
@@ -143,6 +188,7 @@ main {
     box-sizing: border-box;
     border-top: 1px solid #CF6F55;
     color: #000;
+    bottom: 0;
 }
 .footer-table {
     position: absolute;
@@ -180,7 +226,7 @@ main {
     border-bottom: 1px solid #DCDCDC;
     border-right: 1px solid #DCDCDC;
     background: #FFF;
- }
+ }   
   .shop-sections li:hover {
     cursor: pointer;
     background: #FFC1C1;
@@ -270,9 +316,12 @@ main {
     padding-left: 10px;
 }
 .basket-button{
+    width: 95%;
+    height: 44px;
     margin-top: 5px;
-	color: #333333;
-	padding: .5em 2em;
+    color: #333333;
+    margin-left: 10px;
+	padding: .5em 1em;
 	border: 1px solid #A0A9B1;
 	border-radius: 6px;
 	background: #FFF;
@@ -365,4 +414,204 @@ ul.clear{
 	overflow: hidden;
 	margin-left: 0;
 	padding-left: 0;
+}
+.smartphone-container{
+    width: 95%;
+    height: 150px;
+    box-sizing: border-box;
+    background: #F5F5F5;
+    border: 1px solid #A0A9B1;
+    border-radius: 7px;
+    margin: auto;
+    margin-top: 10px;
+}
+.filters{
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    background: #F5F5F5;
+    border: 1px solid #A0A9B1; 
+    position: relative;
+}
+.filter-accept-button{
+    width: 100px;
+    height: 30px;
+    color: white;
+	border: 1px solid #A0A9B1;
+	border-radius: 6px;
+	background: #CF6F55;
+    transition: 0.2s;
+    position: absolute;
+    bottom: 5px;
+    left: 5%;
+}
+ .filter-accept-button:hover{ 
+     background: #E54B4B; 
+     cursor: pointer;
+ }
+ .filter-reset-button{
+    width: 100px;
+    height: 30px;
+    color: white;
+	border: 1px solid #A0A9B1;
+	border-radius: 6px;
+	background: #CF6F55;
+    transition: 0.2s;
+    position: absolute;
+    bottom: 5px;
+    left: 53%;
+}
+ .filter-reset-button:hover{ 
+     background: #E54B4B; 
+     cursor: pointer;
+ }
+ .price-range{
+    border: 1px solid #A0A9B1;
+    border-radius: 6px;
+    width: 22%; 
+    text-align: center;
+ }
+ .filter-name{    
+     margin-top: 5px;
+     font-weight: bold;
+     font-size: 20px;
+ }
+ .radio {
+    vertical-align: top;
+    width: 11px;
+    height: 11px;
+    margin: 0 3px 0 0;
+  }
+  .radio + label {
+    cursor: pointer;
+  }
+  .radio:not(checked) {
+    position: absolute;
+    opacity: 0;
+  }
+  .radio:not(checked) + label {
+    position: relative;
+    padding: 0 0 0 25px;
+  }
+  .radio:not(checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #CDD1DA;
+    border-radius: 50%;
+    background: #FFF;
+  }
+  .radio:not(checked) + label:after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #CF6F55;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.5);
+    opacity: 0;
+    transition: all .2s;
+  }
+  .radio:checked + label:after {
+    opacity: 1;
+  }
+  .radio:focus + label:before {
+    box-shadow: 0 0 0 3px rgba(255,255,0,.5);
+  }
+  .product-galelry{
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    background: #F5F5F5;
+    border: 1px solid #A0A9B1;
+    box-sizing: border-box;
+    border-radius: 6px;
+  }
+  .product-characteristics{
+    margin-top: 15px;
+    background: #F5F5F5;
+    border: 1px solid #A0A9B1;
+    box-sizing: border-box;
+    border-radius: 6px;
+    padding: 15px;
+  }
+.shop-sections-hide {
+    position: fixed;
+    list-style-type: none;
+    margin-left: -40px;
+    margin-top: 0px;
+    display: none;
+    z-index: 1;
+}
+.shop-sections-hide li {
+    box-sizing: border-box;
+    height: 40px;
+    width: 240px;
+    padding: 11px;
+    font-weight: bold;
+    border-left: 3px solid #CF6F55;
+    border-bottom: 1px solid #DCDCDC;
+    border-right: 1px solid #DCDCDC;
+    background: #FFF;
+ }   
+  .shop-sections-hide li:hover {
+    cursor: pointer;
+    background: #FFC1C1;
+ }
+ .availability{
+    color: #B8860B;
+    text-align: right;
+    margin-bottom: 5px;
+    margin-right: 5px;
+ }
+ .basket-item-container{    
+    width: 100%;
+    height: auto;
+    margin-top: 15px;
+    background: #F5F5F5;
+    border: 1px solid #A0A9B1;
+    box-sizing: border-box;
+    border-radius: 6px;    
+ }
+ .accept-order-button{
+    display: none;
+    margin-left: 580px;
+    margin-top: 15px;
+    width: 120px;
+    height: 60px;
+	color: white;
+	border: 1px solid #A0A9B1;
+	border-radius: 6px;
+	background: #CF6F55;
+	transition: 0.2s; 
+ }
+ .accept-order-button:hover{ 
+    background: #E54B4B; 
+	cursor: pointer;
+}
+.basket-item{
+    position: relative;
+    height: 280px;
+    width: 100%;
+    border-bottom: 1px solid #A0A9B1;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+.delete-basket-item{
+    position: absolute;
+    color: white;
+    top: 0;
+    right: 10px;
+    border: 1px solid #A0A9B1;
+	border-radius: 6px;
+	background: #CF6F55;
+	transition: 0.2s;   
+}
+.delete-basket-item:hover{ 
+    background: #E54B4B; 
+	cursor: pointer;
 }

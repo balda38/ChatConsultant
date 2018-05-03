@@ -1,11 +1,13 @@
 ﻿<!doctype html>
 <html>
 <head>
+<title>Супер-магазин смартфонов ASUS</title>
 <meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="images/main-logo-small.png">
 <link rel="stylesheet" href="bower_components/sculptor/css/sculptor.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body onload="slidersChange(0)">
+<body class="pages-body" onload="slidersChange(0)">
 	<div id="page-body">
         <main>
             <header>
@@ -22,7 +24,7 @@
                                     </table>                                
                                 </td>
                                 <td style="width: 60%;"><input class="search-input" placeholder="Поиск..." style="width: 100%"></td>
-                                <td style="width: 20%;"><button class='basket-button'><img ng-src='images/basket.png' width='20' height='20'>Корзина</button></td>
+                                <td style='width: 20%;'><basket-directive path="views/basket.html"></basket-directive></td>
                             </tr>
                         </table>                    
                     </div>
@@ -32,27 +34,29 @@
 
             <table style="width: 100%; margin-left: -3px;">
                 <tr>
-                    <td style="width: 20%;">
+                    <td style="width: 20%; vertical-align: top;">
                         <ul class="shop-sections">
-                            <li style="border-top: 1px solid #DCDCDC;"><span><img style="vertical-align: middle;" ng-src='images/smartphones.png' width='20' height='20'>Смартфоны</span>
-                            <li><span><img style="vertical-align: middle;" ng-src='images/cases.png' width='20' height='20'>Чехлы</span>
-                            <li><span><img style="vertical-align: middle;" ng-src='images/glasses.png' width='20' height='20'>Защитные стекла</span>
-                            <li><span><img style="vertical-align: middle;" ng-src='images/headset.png' width='20' height='20'>Гарнитуры</span>
-                            <li><span><img style="vertical-align: middle;" ng-src='images/sd_card.png' width='20' height='20'>Карты памяти</span>
-                            <li><span><img style="vertical-align: middle;" ng-src='images/battery.png' width='20' height='20'>Зарядки</span>
-                            <li><span><img style="vertical-align: middle;" ng-src='images/other.png' width='20' height='20'>Другие аксессуары</span>
+                            <li style="border-top: 1px solid #DCDCDC;" onclick="location.href='views/shop_sections/smartphones.html'"><span><img style="vertical-align: middle;" ng-src='images/nav_menu_sections/smartphones.png' width='20' height='20'>Смартфоны</span>
+                            <li onclick="location.href='views/shop_sections/cases.html'"><span><img style="vertical-align: middle;" ng-src='images/nav_menu_sections/cases.png' width='20' height='20'>Чехлы</span>
+                            <li onclick="location.href='views/shop_sections/glases.html'"><span><img style="vertical-align: middle;" ng-src='images/nav_menu_sections/glasses.png' width='20' height='20'>Защитные стекла</span>
+                            <li onclick="location.href='views/shop_sections/headset.html'"><span><img style="vertical-align: middle;" ng-src='images/nav_menu_sections/headset.png' width='20' height='20'>Гарнитуры</span>
+                            <li onclick="location.href='views/shop_sections/cards.html'"><span><img style="vertical-align: middle;" ng-src='images/nav_menu_sections/sd_card.png' width='20' height='20'>Карты памяти</span>
+                            <li onclick="location.href='views/shop_sections/batterys.html'"><span><img style="vertical-align: middle;" ng-src='images/nav_menu_sections/battery.png' width='20' height='20'>Зарядки</span>
+                            <li onclick="location.href='views/shop_sections/others.html'"><span><img style="vertical-align: middle;" ng-src='images/nav_menu_sections/other.png' width='20' height='20'>Другие аксессуары</span>
                         </ul>
                     </td>
                     <td style="width: 80%;">
-                        <div id="slider" class="action-slider" style="background-image: url(images/слайд1.jpg);">
+                        <div id="slider" class="action-slider" style="background-image: url(images/slides/слайд1.jpg);">
                             <img src="images/nav_left_arrow.png" width="30" height="30" class="nav-left-arrow" onclick="arrowClick(0)">
+                            <img src="images/nav_right_arrow.png" width="30" height="30" class="nav-right-arrow" onclick="arrowClick(1)">
+                            <div id="slider-href" onclick="pageTransition()" style="height: 100%; width: 90%; margin: auto; cursor: pointer;"></div>                                                             
                             <div class="switchers">
                                 <label class="radio-container"><input id="switcher1" checked="true" name="changeSlider" class="checkmark" type="radio" onclick="slidersChange(1)"><span class="checkmark"></span></label>
                                 <label class="radio-container"><input id="switcher2" name="changeSlider" class="switcher" type="radio" onclick="slidersChange(2)"><span class="checkmark"></span></label>
                                 <label class="radio-container"><input id="switcher3" name="changeSlider" class="switcher" type="radio" onclick="slidersChange(3)"><span class="checkmark"></span></label>
                                 <label class="radio-container"><input id="switcher4" name="changeSlider" class="switcher" type="radio" onclick="slidersChange(4)"><span class="checkmark"></span></label>
                             </div>
-                            <img src="images/nav_right_arrow.png" width="30" height="30" class="nav-right-arrow" onclick="arrowClick(1)">
+                            
                         </div>
                     </td>
                 </tr>
@@ -63,29 +67,37 @@
 		    <table class="table">
 				    <tr>
 					    <td style="width:25%">
-						    <smartphone-directive name="Zenfone 2 ZE551ML" img-path="images/ze551ml.jpg" processor="Intel Atom Z3580 (64-бит, 4 ядра, 2.3 ГГц)" 
-						    ram="4 Гб" memory="64 Гб" battery="3000 мА/ч" camera="13Мп, автофокус" display="5.5" 1920x1080 IPS" other="4G LTE, Dual-SIM, слот для microSD карты, 170г" 
-						    price="23990"></smartphone-directive>
+						    <smartphone-directive name="Zenfone 2 ZE551ML" img-path="images/smartphones/ze551ml/ze551ml.jpg" processor="Intel Atom Z3580 (64-бит, 4 ядра, 2.3 ГГц)" 
+						    ram="4 Гб" memory="64 Гб" battery="3000 мА/ч" camera="13Мп, автофокус" display="5.5, 1920x1080 IPS" other="4G LTE, Dual-SIM, слот для microSD карты, 170г" 
+                            price="23990" 
+                            description = "Intel Atom Z3580 (64-бит, 4 ядра, 2.3 ГГц) 4 Гб, 64 Гб, 3000 мА/ч, 13Мп, автофокус, 5.5, 1920x1080 IPS, 4G LTE, Dual-SIM, слот для microSD карты, 170г"
+                            type="Смартфоны"></smartphone-directive>
 					    </td>
 					    <td style="width:25%">
-						    <smartphone-directive name="ZenFone 3 MAX ZC520TL" img-path="images/zc520tl.jpg" processor="MediaTek MT6737T (64-бит, 4 ядра, 1.4 ГГц)" 
-						    ram="2 Гб" memory="32 Гб" battery="4130 мА/ч" camera="13Мп, автофокус" display="5.2" 1280x720 IPS" other="4G LTE, Dual-SIM, слот для microSD карты, 148г" 
-						    price="13590"></smartphone-directive>
+						    <smartphone-directive name="ZenFone 3 MAX ZC520TL" img-path="images/smartphones/zc520tl/zc520tl.jpg" processor="MediaTek MT6737T (64-бит, 4 ядра, 1.4 ГГц)" 
+						    ram="2 Гб" memory="32 Гб" battery="4130 мА/ч" camera="13Мп, автофокус" display="5.2, 1280x720 IPS" other="4G LTE, Dual-SIM, слот для microSD карты, 148г" 
+                            price="13590"
+                            description = "MediaTek MT6737T (64-бит, 4 ядра, 1.4 ГГц), 2 Гб, 32 Гб, 4130 мА/ч, 13Мп, автофокус, 5.2, 1280x720 IPS, 4G LTE, Dual-SIM, слот для microSD карты, 148г"
+                            type="Смартфоны"></smartphone-directive>
 					    </td>					
 					    <td style="width:25%">
-						    <smartphone-directive name="ZenFone 4 MAX ZC554KL" img-path="images/zc554kl.jpg" processor="Qualcomm Snapdragon 425 MSM8917 (64-бит, 4 ядра, 1.4 ГГц)" 
-						    ram="2 Гб" memory="16 Гб" battery="5000 мА/ч" camera="13Мп, автофокус" display="5.5" 1280x720 IPS" other="4G LTE, Dual-SIM, слот для microSD карты, 181г" 
-						    price="13990"></smartphone-directive>
+						    <smartphone-directive name="ZenFone 4 MAX ZC554KL" img-path="images/smartphones/zc554kl/zc554kl.jpg" processor="Qualcomm Snapdragon 425 MSM8917 (64-бит, 4 ядра, 1.4 ГГц)" 
+						    ram="2 Гб" memory="16 Гб" battery="5000 мА/ч" camera="13Мп, автофокус" display="5.5, 1280x720 IPS" other="4G LTE, Dual-SIM, слот для microSD карты, 181г" 
+                            price="13990" 
+                            description = "Qualcomm Snapdragon 425 MSM8917 (64-бит, 4 ядра, 1.4 ГГц), 2 Гб, 16 Гб, 5000 мА/ч, 13Мп, автофокус, 5.5, 1280x720 IPS, 4G LTE, Dual-SIM, слот для microSD карты, 181г"
+                            type="Смартфоны"></smartphone-directive>
 					    </td>					
 					    <td style="width:25%">
-						    <smartphone-directive name="ZenFone 2 Laser ZE601KL" img-path="images/ze601kl.jpg" processor="Qualcomm Snapdragon 616 MSM8939 (64-бит, 8 ядра, 1.7 ГГц)" 
-						    ram="4 Гб" memory="32 Гб" battery="3000 мА/ч" camera="13Мп, автофокус" display="6" 1920x1080 IPS" other="4G LTE, Dual-SIM, слот для microSD карты, 190г" 
-						    price="14990"></smartphone-directive>
+						    <smartphone-directive name="ZenFone 2 Laser ZE601KL" img-path="images/smartphones/ze601kl/ze601kl.jpg" processor="Qualcomm Snapdragon 616 MSM8939 (64-бит, 8 ядер, 1.7 ГГц)" 
+						    ram="4 Гб" memory="32 Гб" battery="3000 мА/ч" camera="13Мп, автофокус" display="6, 1920x1080 IPS" other="4G LTE, Dual-SIM, слот для microSD карты, 190г" 
+                            price="14990" 
+                            description = "Qualcomm Snapdragon 616 MSM8939 (64-бит, 8 ядер, 1.7 ГГц), 4 Гб, 32 Гб, 3000 мА/ч, 13Мп, автофокус, 6, 1920x1080 IPS, 4G LTE, Dual-SIM, слот для microSD карты, 190г"
+                            type="Смартфоны"></smartphone-directive>
 					    </td>
 				    </tr>			
 		    </table>
 
-            <br><br><br>
+            
         </main>
 	</div>
 
@@ -95,35 +107,35 @@
                 <td>
                     <h3 align="center">О нас</h3>
                     <ul class="footer-list" style="border-right: 2px solid #BEBEBE;">
-                        <li><a>Юридическая информация</a>
-                        <li><a>Новости</a>
-                        <li><a>Вакансии</a>
-                        <li><a>Партнерам</a>
+                        <li><a href="views/about_us/jur_info.html">Юридическая информация</a>
+                        <li><a href="views/about_us/news.html">Новости</a>
+                        <li><a href="views/about_us/vacancies.html">Вакансии</a>
+                        <li><a href="views/about_us/for_partners.html">Партнерам</a>
                     </ul>
                 </td>
                 <td>
                     <h3 align="center">Покупателям</h3>
                     <ul class="footer-list" style="border-right: 2px solid #BEBEBE;">
-                        <li><a>Бонусная программа</a>
-                        <li><a>Акции</a>
-                        <li><a>Магазины и сервисные центры</a>
-                        <li><a>Доставка</a>
+                        <li><a href="views/for_buyers/bonuses.html">Бонусная программа</a>
+                        <li><a href="views/for_buyers/actions.html">Акции</a>
+                        <li><a href="views/for_buyers/shops_and_centers.html">Магазины и сервисные центры</a>
+                        <li><a href="views/for_buyers/delivery.html">Доставка</a>
                     </ul>
                 </td>
                 <td>
                     <h3 align="center">Мы в соц. сетях</h3>                    
-                    <p align="center"><a href="https://vk.com/"><img style="vertical-align: middle;" ng-src='images/vk.png' width='50' height='50'></a>
-                    <a href="https://www.facebook.com/"><img style="vertical-align: middle;" ng-src='images/fb.png' width='50' height='50'></a></p>
-                    <p align="center"><a href="https://www.twitter.com/"><img style="vertical-align: middle;" ng-src='images/twitter.png' width='50' height='50'></a>
-                    <a href="https://www.youtube.com/"><img style="vertical-align: middle;" ng-src='images/yt.png' width='50' height='50'></a></p>
+                    <p align="center"><a href="https://vk.com/"><img style="vertical-align: middle;" ng-src='images/social/vk.png' width='50' height='50'></a>
+                    <a href="https://www.facebook.com/"><img style="vertical-align: middle;" ng-src='images/social/fb.png' width='50' height='50'></a></p>
+                    <p align="center"><a href="https://www.twitter.com/"><img style="vertical-align: middle;" ng-src='images/social/twitter.png' width='50' height='50'></a>
+                    <a href="https://www.youtube.com/"><img style="vertical-align: middle;" ng-src='images/social/yt.png' width='50' height='50'></a></p>
                 </td>
                 <td>
                     <h3 align="center">Помощь</h3>
                     <ul class="footer-list" style="border-left: 2px solid #BEBEBE;">
-                        <li><a>Как оформть заказ</a>
-                        <li><a>Способы оплаты</a>
-                        <li><a>Обмен и возврат товара</a>
-                        <li><a>Гарантийное обслуживание</a>
+                        <li><a href="views/help/make_order.html">Как оформть заказ</a>
+                        <li><a href="views/help/payment_variants.html">Способы оплаты</a>
+                        <li><a href="views/help/product_return.html">Обмен и возврат товара</a>
+                        <li><a href="views/help/guarantees.html">Гарантийное обслуживание</a>
                     </ul>
                 </td>
             </tr>
@@ -137,7 +149,9 @@
 
 <script>
     var slider = document.getElementById("slider");
-    var slides = ['images/слайд1.jpg', 'images/слайд2.jpg', 'images/слайд3.jpg', 'images/слайд4.jpg'];
+    var sliderhref = document.getElementById("slider-href");
+    var slides = ['images/slides/слайд1.jpg', 'images/slides/слайд2.jpg', 'images/slides/слайд3.jpg', 'images/slides/слайд4.jpg'];
+    var locations = ['views/product.html', 'views/product.html', 'views/shop_sections/glases.html', 'views/shop_sections/cases.html'];
     var switchers = [document.getElementById("switcher1"), document.getElementById("switcher2"), document.getElementById("switcher3"), document.getElementById("switcher4")];
     var count = 0;
     var interval = undefined;
@@ -150,8 +164,7 @@
             default:
                 newSlide(slideNum - 2);         
                 break;
-        }
-        
+        }        
     }
 
     function arrowClick(arrowNum) {
@@ -167,8 +180,7 @@
             case 1:
                 newSlide(count);
                 break;
-        }
-        
+        }        
     }
 
     function newSlide(slideNum) {
@@ -191,8 +203,19 @@
         else {
             switchers[count - 1].checked = false;
         }       
-        switchers[count].checked = true;
+        switchers[count].checked = true;        
         slider.setAttribute('class', 'hide-slide show-slide');        
+    }
+
+    function pageTransition() {
+        if(count == 0){
+            sessionStorage.setItem('productName', "ZenFone 3 Laser ZC551KL");
+             
+        }
+        if(count == 1){
+            sessionStorage.setItem('productName', "ZenFone 3 ZE552KL");
+        }    
+        document.location.href = locations[count];
     }
 </script>
 
