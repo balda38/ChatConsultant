@@ -29,26 +29,17 @@ define(function(){
 			    "</div>"+
                 "<textarea ng-keydown='sendMessage($event)' id='userMessage' type='text' class='chat-input' placeholder='Введите ваше сообщение здесь и нажмите Enter...' ></textarea>",
 			scope:{},
-			controller: function ($, $scope, $attrs) {
+			controller: function ($scope, $attrs, $http) {
 			    var msg = document.getElementById('userMessage');
 			    var ul = document.getElementById('messages');
-			    $scope.userName = undefined;
+				$scope.userName = undefined;
 
-			    var connection = $.connection('SITE HERE');
-			    connection.start().hub.start().done(function(){
-
-			    });
-
-			    connection.client.addMessage = function(message){
-			        var li = document.createElement('li');
-			        var br = document.createElement('br');
-			        br.setAttribute('style', 'clear: both');
-			        li.setAttribute('class', 'admin-message-cloud');
-			        li.appendChild(document.createTextNode(message));
-			        ul.appendChild(li);
-			        ul.appendChild(br);
-			        ul.appendChild(br);
-			    };
+				console.log(localStorage.getItem('client'));
+				if (localStorage.getItem('client') != null)
+				{
+					$scope.userName = localStorage.getItem('client');
+					switchWindow();					
+				}
 
 				$scope.sendMessage = function(e){
 					if(e.keyCode == 13){						
@@ -62,25 +53,40 @@ define(function(){
 					        ul.appendChild(li);
 					        ul.appendChild(br);
 					        ul.appendChild(br);
-					        connection.server.sendMessage(msg.value);
 					        msg.value = "";
 					    };
 					};
 				};
 
-				$scope.goChat = function () {
+				$scope.goChat = function () {	
 				    if (document.getElementById("userName").value != "") {
-				        $scope.userName = document.getElementById("userName").value;
-				        connection.server.connect($scope.userName);
-
-				        var chat1 = document.getElementById("chat1");
-				        chat1.parentNode.removeChild(chat1);
-				        document.getElementById("chat2").style.opacity = "1";
-				        document.getElementById("userMessage").style.opacity = "1";
+				        $scope.userName = document.getElementById("userName").value;				        
 				    }
 				    else{
 				        window.alert("Пожалуйста, укажите Ваше имя");
-				    }
+					}
+					
+					var config = {
+						headers: {
+							'Content-Type': 'application/json'
+						}
+					}
+					
+					$http.post('https://chatconsultantadminsclient.azurewebsites.net/Clients/NewClient', { name: document.getElementById("userName").value, site: document.domain }, config)
+                       .then(function (response) {
+							console.log(response)
+							//localStorage.setItem("client", document.getElementById("userName").value);
+							switchWindow();
+						}, function (error) {
+                            console.log("Ошибка: " + error);
+						});			
+				}
+
+				var switchWindow = function(){
+					var chat1 = document.getElementById("chat1");
+					chat1.parentNode.removeChild(chat1);
+					document.getElementById("chat2").style.opacity = "1";
+					document.getElementById("userMessage").style.opacity = "1";
 				}
 			},
 			link: function (scope, element, attrs) {					

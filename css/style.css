@@ -346,17 +346,16 @@ main {
 	height: 50%;
 	position: fixed;
 	bottom: 15px;
-	right: 70px;
-	border: 1px solid #A0A9B1;
-	border-radius: 8px;
+    right: 70px;
+    border: 1px solid #A0A9B1;	
 	background: #FFF;
 }
 .chat-header{
-	width: 100%;
+    width: 100%;
 	box-sizing: border-box;
 	padding: 10px 20px;
 	margin: 0 0;
-	background: #CF6F55;
+    background: #CF6F55;
 	resize: none;
 }
 .chat-with-user {
@@ -384,6 +383,7 @@ main {
     width: 100%;
 }
 .user-message-cloud{	
+    max-width: 70%;
 	box-sizing: border-box;
 	display: block;
 	word-wrap: break-word;
@@ -397,6 +397,7 @@ main {
 	border-radius: 6px;
 }
 .admin-message-cloud{
+    max-width: 70%;
 	box-sizing: border-box;
 	display: block;
 	word-wrap: break-word; 
