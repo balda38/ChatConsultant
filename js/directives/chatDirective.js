@@ -14,7 +14,7 @@ define(function(){
 						"</tr>" +				
 					"</table>" +		
 				"</div>" +	
-				"<div class='chat-window'>" +
+				"<div id='chatW' class='chat-window'>" +
                     "<div id='chat1'>" +
                         "Напишите, пожалуйста, как мы к Вам можем обращаться" +
                         "<input id='userName' type='text'>" +
@@ -33,7 +33,7 @@ define(function(){
 			    var msg = document.getElementById('userMessage');
 			    var ul = document.getElementById('messages');
 				$scope.userName = undefined;
-
+				localStorage.clear();
 				console.log(localStorage.getItem('client'));
 				if (localStorage.getItem('client') != null)
 				{
@@ -41,21 +41,42 @@ define(function(){
 					switchWindow();					
 				}
 
+				var config = {
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				}
+
 				$scope.sendMessage = function(e){
 					if(e.keyCode == 13){						
 					    e.preventDefault();
 					    if (msg.value != "") {
-					        var li = document.createElement('li');
-					        var br = document.createElement('br');
-					        br.setAttribute('style', 'clear: both');
-					        li.setAttribute('class', 'user-message-cloud');
-					        li.appendChild(document.createTextNode(msg.value));
-					        ul.appendChild(li);
-					        ul.appendChild(br);
-					        ul.appendChild(br);
-					        msg.value = "";
-					    };
+							var data = {
+								msgText: msg.value,
+								msgFrom: $scope.userName,
+								msgTo: "admin1"
+							}
+
+							$http.post('https://chatconsultantadminsclient.azurewebsites.net/Messages/AddMessage', { newMsg: data, role: "client" }, config)
+								.then(function (response) {
+										updateList(msg.value, 'client'); 	
+										msg.value = "";										
+									}, function (error) {
+										console.log("Ошибка: " + error);
+									});	
+									
+							setInterval(function(){
+								$http.get('https://chatconsultantadminsclient.azurewebsites.net/Messages/GetLastAdminMessage', { params: { client: $scope.userName } }, config)
+								.then(function (response) {
+									console.log(response.data)
+									if(response.data != lastAdminMessage) updateList(response.data, 'admin');  							
+								}, function (error) {
+									console.log("Ошибка: " + error);
+								});      
+							}, 5000);
+						};		
 					};
+					
 				};
 
 				$scope.goChat = function () {	
@@ -64,13 +85,7 @@ define(function(){
 				    }
 				    else{
 				        window.alert("Пожалуйста, укажите Ваше имя");
-					}
-					
-					var config = {
-						headers: {
-							'Content-Type': 'application/json'
-						}
-					}
+					}		
 					
 					$http.post('https://chatconsultantadminsclient.azurewebsites.net/Clients/NewClient', { name: document.getElementById("userName").value, site: document.domain }, config)
                        .then(function (response) {
@@ -88,6 +103,33 @@ define(function(){
 					document.getElementById("chat2").style.opacity = "1";
 					document.getElementById("userMessage").style.opacity = "1";
 				}
+
+				var lastAdminMessage = undefined;
+
+				var updateList = function(msg, role){
+					var li = document.createElement('li');
+					var br = document.createElement('br');
+					br.setAttribute('style', 'clear: both');
+					if(role == 'client') li.setAttribute('class', 'user-message-cloud');
+					else 
+					{
+						lastAdminMessage = msg;
+						li.setAttribute('class', 'admin-message-cloud');
+					}
+					li.appendChild(document.createTextNode(msg));
+					ul.appendChild(li);
+					ul.appendChild(br);
+					ul.appendChild(br);		
+					
+					scrollToDown()
+				}
+
+				var chatWindow = document.getElementById('chatW');
+				function scrollToDown() {
+                    if (chatWindow.scrollHeight != 0) {
+                        chatWindow.scrollTo(0, chatWindow.scrollHeight);
+                    };
+                };
 			},
 			link: function (scope, element, attrs) {					
 			}	
