@@ -9,8 +9,8 @@ define(function(){
 				"<div class='chat-header'>" +
 					"<table class='table'>" +
 						"<tr>" +
-							"<td><b>Свяжитесь с нами</b><br>Мы всегда онлайн</td>" +
-							"<td><img src='../images/consultant.png' height='48px' width='48px'></img></td>" +
+							"<td><b>Свяжитесь с нами</b><br>Консультант <i><b>Сергей</b></i> онлайн!</td>" +
+							"<td><img src='../images/headphones.png' height='48px' width='48px'></img></td>" +
 						"</tr>" +				
 					"</table>" +		
 				"</div>" +	
@@ -47,6 +47,8 @@ define(function(){
 					}
 				}
 
+				var nC = false;
+
 				$scope.sendMessage = function(e){
 					if(e.keyCode == 13){						
 					    e.preventDefault();
@@ -56,6 +58,17 @@ define(function(){
 								msgFrom: $scope.userName,
 								msgTo: "admin1"
 							}
+
+							if(!nC){
+								$http.post('https://chatconsultantadminsclient.azurewebsites.net/Clients/NewClient', { name: $scope.userName, site: document.domain }, config)
+								.then(function (response) {
+										console.log(response)
+										//localStorage.setItem("client", document.getElementById("userName").value);	
+										nC = true;							
+									}, function (error) {
+										console.log("Ошибка: " + error);
+									});	
+							}							
 
 							$http.post('https://chatconsultantadminsclient.azurewebsites.net/Messages/AddMessage', { newMsg: data, role: "client" }, config)
 								.then(function (response) {
@@ -81,20 +94,12 @@ define(function(){
 
 				$scope.goChat = function () {	
 				    if (document.getElementById("userName").value != "") {
-				        $scope.userName = document.getElementById("userName").value;				        
+						$scope.userName = document.getElementById("userName").value;	
+						switchWindow();			        
 				    }
 				    else{
 				        window.alert("Пожалуйста, укажите Ваше имя");
 					}		
-					
-					$http.post('https://chatconsultantadminsclient.azurewebsites.net/Clients/NewClient', { name: document.getElementById("userName").value, site: document.domain }, config)
-                       .then(function (response) {
-							console.log(response)
-							//localStorage.setItem("client", document.getElementById("userName").value);
-							switchWindow();
-						}, function (error) {
-                            console.log("Ошибка: " + error);
-						});			
 				}
 
 				var switchWindow = function(){

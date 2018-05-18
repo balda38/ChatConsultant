@@ -7,7 +7,7 @@ define(function(){
 			restrict: 'EACM',			
 			template:
 				"<div class='chat-button' id='chatButton'>" +
-					"<img src='images/arrow.png' ng-click='hideChatWindow()'></img>" +
+					"<img src='images/clck_block.png' class='clck-block' ng-click='hideChatWindow()'></img>" +
 				"</div>" +
 				"<div class='chat-frame' id='chatFrame'>" +
 					"<iframe id='chatWindow' src='views/chat.html' frameBorder='0'></iframe>" +
@@ -19,12 +19,12 @@ define(function(){
 					if(show){
 						document.getElementById('chatFrame').style.display = 'none';
 						show = false;
-						document.getElementById('chatButton').style.transform = "scale(-1, 1)";	
+						//document.getElementById('chatButton').style.transform = "scale(-1, 1)";	
 					}
 					else{
 						document.getElementById('chatFrame').style.display = 'block';
 						show = true;		
-						document.getElementById('chatButton').style.transform = "scale(1, 1)";							
+						//document.getElementById('chatButton').style.transform = "scale(1, 1)";							
 					};												
 				};								
 			},
