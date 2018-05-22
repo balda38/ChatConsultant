@@ -54,6 +54,17 @@ define(function(){
 							frame.remove(); 
 							console.log("Ошибка: " + error);
 						}); 
+
+				window.onbeforeunload = function(e){
+					$http.post('/Clients/ChangeStatus', { name: sessionStorage.getItem("consultName"), status: false }, config)
+						.then(function (response) {
+							
+						}, function (error) {
+							console.log("Ошибка: " + error);
+						}); 
+				
+					$rootScope.$digest();                    
+				}
 			},
 			link: function (scope, element, attrs) {					
 			}	
