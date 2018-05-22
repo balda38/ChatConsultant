@@ -2,14 +2,14 @@
 define(function(){
 	var directiveModule = angular.module('chatDirective', []);	
 
-	directiveModule.directive('chatDirective', function(){		
+	directiveModule.directive('chatDirective', function(frameFac){		
 		return {
 			restrict: 'EACM',			
 			template:
 				"<div class='chat-header'>" +
 					"<table class='table'>" +
 						"<tr>" +
-							"<td><b>Свяжитесь с нами</b><br>Консультант <i><b>Сергей</b></i> онлайн!</td>" +
+							"<td><b>Свяжитесь с нами</b><br>Консультант <i><b>{{consultName}}</b></i> онлайн!</td>" +
 							"<td><img src='../images/headphones.png' height='48px' width='48px'></img></td>" +
 						"</tr>" +				
 					"</table>" +		
@@ -29,12 +29,12 @@ define(function(){
 			    "</div>"+
                 "<textarea ng-keydown='sendMessage($event)' id='userMessage' type='text' class='chat-input' placeholder='Введите ваше сообщение здесь и нажмите Enter...' ></textarea>",
 			scope:{},
-			controller: function ($scope, $attrs, $http) {
+			controller: function ($scope, $attrs, $http, $compile) {
 			    var msg = document.getElementById('userMessage');
 			    var ul = document.getElementById('messages');
 				$scope.userName = undefined;
 				localStorage.clear();
-				console.log(localStorage.getItem('client'));
+				
 				if (localStorage.getItem('client') != null)
 				{
 					$scope.userName = localStorage.getItem('client');
@@ -47,7 +47,22 @@ define(function(){
 					}
 				}
 
+				// $scope.$on('changeName', function(){
+				// 	console.log(frameFac.adminName)
+					$scope.consultName = sessionStorage.getItem("consultName");			
+				// });
+
 				var nC = false;
+
+				
+				if(nC){
+					$http.post('/Clients/ChangeStatus', { name: $scope.userName, status: true }, config)
+					.then(function (response) {
+						
+					}, function (error) {
+						console.log("Ошибка: " + error);
+					}); 
+				}	
 
 				$scope.sendMessage = function(e){
 					if(e.keyCode == 13){						
@@ -134,7 +149,7 @@ define(function(){
                     if (chatWindow.scrollHeight != 0) {
                         chatWindow.scrollTo(0, chatWindow.scrollHeight);
                     };
-                };
+				};
 			},
 			link: function (scope, element, attrs) {					
 			}	

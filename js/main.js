@@ -9,6 +9,7 @@ require.config({
 		'smartphoneDirective': 'directives/smartphoneDirective',
 		'basketDirective': 'directives/basketDirective',
 		'basketFactory': 'factories/basketFactory',
+		'frameFactory': 'factories/frameFactory',
 		'smartphoneDirectiveSmall': 'directives/smartphoneDirectiveSmall',
 		'productDirective': 'directives/productDirective',
 		'acceptOrderDirective': 'directives/acceptOrderDirective',
@@ -20,7 +21,7 @@ require.config({
 	
 	shim: {
 		'app': {
-			deps: ['angular', 'frameDirective', 'chatDirective', 'smartphoneDirective', 'basketDirective', 'basketFactory', 'smartphoneDirectiveSmall', 'nouislider', 'priceSlider', 'jquery', 'productDirective', 'acceptOrderDirective', 'totalBasketDirective', 'basketController']
+			deps: ['angular', 'frameDirective', 'chatDirective', 'smartphoneDirective', 'basketDirective', 'basketFactory', 'frameFactory', 'smartphoneDirectiveSmall', 'nouislider', 'priceSlider', 'jquery', 'productDirective', 'acceptOrderDirective', 'totalBasketDirective', 'basketController']
 		},
 		'frameDirective':{
 			deps: ['angular']
@@ -35,6 +36,9 @@ require.config({
 			deps: ['angular']
 		},
 		'basketFactory':{
+			deps: ['angular']
+		},
+		'frameFactory':{
 			deps: ['angular']
 		},
 		'smartphoneDirectiveSmall':{
