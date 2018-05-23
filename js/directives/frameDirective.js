@@ -19,12 +19,10 @@ define(function(){
 					if(show){
 						document.getElementById('chatFrame').style.display = 'none';
 						show = false;
-						//document.getElementById('chatButton').style.transform = "scale(-1, 1)";	
 					}
 					else{
 						document.getElementById('chatFrame').style.display = 'block';
-						show = true;		
-						//document.getElementById('chatButton').style.transform = "scale(1, 1)";							
+						show = true;								
 					};												
 				};	
 
@@ -41,8 +39,7 @@ define(function(){
 					.then(function (response) { 
 							if(response.data != null) {								
 								btn.style.opacity = 1;
-								frame.style.opacity = 1;
-								//frameFac.changeAdminName(response.data);
+								frame.style.opacity = 1;								
 								var adminName = response.data.name.split(' ')[0];
 								sessionStorage.setItem("consultName", adminName)
 								sessionStorage.setItem("consultLogin", response.data.login)

@@ -31,12 +31,12 @@ define(function(){
 			scope:{},
 			controller: function ($scope, $attrs, $http, $compile) {
 			    var msg = document.getElementById('userMessage');
-			    var ul = document.getElementById('messages');
+				var ul = document.getElementById('messages');
+				
 				$scope.userName = localStorage.getItem('client');
-
 				$scope.consultName = sessionStorage.getItem("consultName");
+
 				var nC = false;
-				var msgArray = [];
 
 				var switchWindow = function(){
 					var chat1 = document.getElementById("chat1");
@@ -51,11 +51,13 @@ define(function(){
 					
 					setTimeout(function(){
 						switchWindow();		
-						var msgs = messagesService.getMessages();						
-						msgs.forEach(function (item, i, arr){
-							updateList(item.message, item.msgFrom);
-						});
 						nC = true;
+						var msgs = messagesService.getMessages();
+						if(msgs != null){
+							msgs.forEach(function (item, i, arr){
+								updateList(item.message, item.msgFrom);
+							});	
+						}					
 					})
 				}
 				
@@ -65,11 +67,6 @@ define(function(){
 					}
 				}
 
-				// $scope.$on('changeName', function(){
-				// 	console.log(frameFac.adminName)
-					// $scope.consultName = sessionStorage.getItem("consultName");			
-				// });
-				
 				if(nC){
 					$http.post('/Clients/ChangeStatus', { name: $scope.userName, status: true }, config)
 					.then(function (response) {
@@ -89,7 +86,8 @@ define(function(){
 								msgTo: "admin1"
 							}
 							
-							if(!nC){
+							if(nC == true){
+
 								$http.post('https://chatconsultantadminsclient.azurewebsites.net/Clients/NewClient', { name: $scope.userName, admin: sessionStorage.getItem("consultLogin") }, config)
 								.then(function (response) {
 										console.log(response)
