@@ -88,9 +88,9 @@ define(function(){
 								msgFrom: $scope.userName,
 								msgTo: "admin1"
 							}
-
+							
 							if(!nC){
-								$http.post('https://chatconsultantadminsclient.azurewebsites.net/Clients/NewClient', { name: $scope.userName, site: document.domain }, config)
+								$http.post('https://chatconsultantadminsclient.azurewebsites.net/Clients/NewClient', { name: $scope.userName, admin: sessionStorage.getItem("consultLogin") }, config)
 								.then(function (response) {
 										console.log(response)
 										localStorage.setItem("client", $scope.userName);

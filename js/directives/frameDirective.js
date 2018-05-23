@@ -37,13 +37,15 @@ define(function(){
 				var btn = document.getElementById("chatButton");
 				var frame = document.getElementById("chatFrame");
 				
-				$http.get('https://chatconsultantadminsclient.azurewebsites.net/Admins/GetAdmin', { params: { site: "localhost" } }, config)
+				$http.get('https://chatconsultantadminsclient.azurewebsites.net/Admins/GetAdmin', { params: { site: document.domain } }, config)
 					.then(function (response) { 
 							if(response.data != null) {								
 								btn.style.opacity = 1;
 								frame.style.opacity = 1;
 								//frameFac.changeAdminName(response.data);
-								sessionStorage.setItem("consultName", response.data)
+								var adminName = response.data.name.split(' ')[0];
+								sessionStorage.setItem("consultName", adminName)
+								sessionStorage.setItem("consultLogin", response.data.login)
 							}
 							else {
 								btn.remove(); 
