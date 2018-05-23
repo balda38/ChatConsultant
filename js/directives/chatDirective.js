@@ -2,7 +2,7 @@
 define(function(){
 	var directiveModule = angular.module('chatDirective', []);	
 
-	directiveModule.directive('chatDirective', function(frameFac){		
+	directiveModule.directive('chatDirective', function(frameFac, messagesService){		
 		return {
 			restrict: 'EACM',			
 			template:
@@ -32,15 +32,33 @@ define(function(){
 			controller: function ($scope, $attrs, $http, $compile) {
 			    var msg = document.getElementById('userMessage');
 			    var ul = document.getElementById('messages');
-				$scope.userName = undefined;
-				localStorage.clear();
-				
+				$scope.userName = localStorage.getItem('client');
+
+				$scope.consultName = sessionStorage.getItem("consultName");
+				var nC = false;
+				var msgArray = [];
+
+				var switchWindow = function(){
+					var chat1 = document.getElementById("chat1");
+					chat1.remove();
+					document.getElementById("chat2").style.opacity = "1";
+					document.getElementById("userMessage").style.opacity = "1";
+				}
+
 				if (localStorage.getItem('client') != null)
 				{
 					$scope.userName = localStorage.getItem('client');
-					switchWindow();					
+					
+					setTimeout(function(){
+						switchWindow();		
+						var msgs = messagesService.getMessages();						
+						msgs.forEach(function (item, i, arr){
+							updateList(item.message, item.msgFrom);
+						});
+						nC = true;
+					})
 				}
-
+				
 				var config = {
 					headers: {
 						'Content-Type': 'application/json'
@@ -49,11 +67,8 @@ define(function(){
 
 				// $scope.$on('changeName', function(){
 				// 	console.log(frameFac.adminName)
-					$scope.consultName = sessionStorage.getItem("consultName");			
+					// $scope.consultName = sessionStorage.getItem("consultName");			
 				// });
-
-				var nC = false;
-
 				
 				if(nC){
 					$http.post('/Clients/ChangeStatus', { name: $scope.userName, status: true }, config)
@@ -78,7 +93,8 @@ define(function(){
 								$http.post('https://chatconsultantadminsclient.azurewebsites.net/Clients/NewClient', { name: $scope.userName, site: document.domain }, config)
 								.then(function (response) {
 										console.log(response)
-										//localStorage.setItem("client", document.getElementById("userName").value);	
+										localStorage.setItem("client", $scope.userName);
+										console.log(localStorage.getItem('client'))	
 										nC = true;							
 									}, function (error) {
 										console.log("Ошибка: " + error);
@@ -87,7 +103,8 @@ define(function(){
 
 							$http.post('https://chatconsultantadminsclient.azurewebsites.net/Messages/AddMessage', { newMsg: data, role: "client" }, config)
 								.then(function (response) {
-										updateList(msg.value, 'client'); 	
+										updateList(msg.value, 'client'); 
+										messagesService.addMessage(msg.value, 'client');
 										msg.value = "";										
 									}, function (error) {
 										console.log("Ошибка: " + error);
@@ -97,7 +114,10 @@ define(function(){
 								$http.get('https://chatconsultantadminsclient.azurewebsites.net/Messages/GetLastAdminMessage', { params: { client: $scope.userName } }, config)
 								.then(function (response) {
 									console.log(response.data)
-									if(response.data != lastAdminMessage) updateList(response.data, 'admin');  							
+									if(response.data != lastAdminMessage) {
+										updateList(response.data, 'admin');  
+										messagesService.addMessage(response.data, 'admin');
+									}							
 								}, function (error) {
 									console.log("Ошибка: " + error);
 								});      
@@ -115,13 +135,6 @@ define(function(){
 				    else{
 				        window.alert("Пожалуйста, укажите Ваше имя");
 					}		
-				}
-
-				var switchWindow = function(){
-					var chat1 = document.getElementById("chat1");
-					chat1.parentNode.removeChild(chat1);
-					document.getElementById("chat2").style.opacity = "1";
-					document.getElementById("userMessage").style.opacity = "1";
 				}
 
 				var lastAdminMessage = undefined;

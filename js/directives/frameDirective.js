@@ -7,10 +7,10 @@ define(function(){
 			restrict: 'EACM',			
 			template:
 				"<div class='chat-button' id='chatButton'>" +
-					"<img src='images/clck_block.png' class='clck-block' ng-click='hideChatWindow()'></img>" +
+					"<img src='https://chat-consultant.azurewebsites.net/images/clck_block.png' class='clck-block' ng-click='hideChatWindow()'></img>" +
 				"</div>" +
 				"<div class='chat-frame' id='chatFrame'>" +
-					"<iframe name='chatWindow' id='chatWindow' src='views/chat.html' frameBorder='0'></iframe>" +
+					"<iframe name='chatWindow' id='chatWindow' src='https://chat-consultant.azurewebsites.net/views/chat.html' frameBorder='0'></iframe>" +
 				"</div>",
 			scope:{},
 			controller: function($scope, $attrs, $http){											
@@ -42,7 +42,7 @@ define(function(){
 							if(response.data != null) {								
 								btn.style.opacity = 1;
 								frame.style.opacity = 1;
-								frameFac.changeAdminName(response.data);
+								//frameFac.changeAdminName(response.data);
 								sessionStorage.setItem("consultName", response.data)
 							}
 							else {

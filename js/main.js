@@ -16,12 +16,13 @@ require.config({
 		'totalBasketDirective': 'directives/totalBasketDirective',
 		'basketController': 'controllers/basketController',
 		'nouislider': '../bower_components/noUiSlider/nouislider.min',
-		'priceSlider': 'priceSlider'
+		'priceSlider': 'priceSlider',
+		'messagesService': 'services/messagesService'
 	},
 	
 	shim: {
 		'app': {
-			deps: ['angular', 'frameDirective', 'chatDirective', 'smartphoneDirective', 'basketDirective', 'basketFactory', 'frameFactory', 'smartphoneDirectiveSmall', 'nouislider', 'priceSlider', 'jquery', 'productDirective', 'acceptOrderDirective', 'totalBasketDirective', 'basketController']
+			deps: ['angular', 'frameDirective', 'chatDirective', 'smartphoneDirective', 'basketDirective', 'basketFactory', 'frameFactory', 'smartphoneDirectiveSmall', 'nouislider', 'priceSlider', 'jquery', 'productDirective', 'acceptOrderDirective', 'totalBasketDirective', 'basketController', 'messagesService']
 		},
 		'frameDirective':{
 			deps: ['angular']
@@ -59,6 +60,9 @@ require.config({
 		'priceSlider':{
 			deps: ['jquery'],
 			exports: '$'
+		},
+		'messagesService':{
+			deps: ['angular']
 		}
 	}
 });
