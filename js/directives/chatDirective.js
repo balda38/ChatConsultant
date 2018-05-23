@@ -52,6 +52,7 @@ define(function(){
 					setTimeout(function(){
 						switchWindow();		
 						nC = true;
+						console.log(nC)
 						var msgs = messagesService.getMessages();
 						if(msgs != null){
 							msgs.forEach(function (item, i, arr){
@@ -86,17 +87,14 @@ define(function(){
 								msgTo: "admin1"
 							}
 							
-							if(nC == true){
-
+							if(nC == false){
 								$http.post('https://chatconsultantadminsclient.azurewebsites.net/Clients/NewClient', { name: $scope.userName, admin: sessionStorage.getItem("consultLogin") }, config)
-								.then(function (response) {
-										console.log(response)
-										localStorage.setItem("client", $scope.userName);
-										console.log(localStorage.getItem('client'))	
-										nC = true;							
-									}, function (error) {
-										console.log("Ошибка: " + error);
-									});	
+									.then(function (response) {
+											localStorage.setItem("client", $scope.userName);
+											nC = true;							
+										}, function (error) {
+											console.log("Ошибка: " + error);
+										});	
 							}							
 
 							$http.post('https://chatconsultantadminsclient.azurewebsites.net/Messages/AddMessage', { newMsg: data, role: "client" }, config)
