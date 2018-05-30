@@ -7,7 +7,7 @@ define(function(){
 			restrict: 'EACM',			
 			template:
 				"<div class='chat-header'>" +
-					"<table class='table'>" +
+					"<table class='header-table'>" +
 						"<tr>" +
 							"<td><b>Свяжитесь с нами</b><br>Консультант <i><b>{{consultName}}</b></i> онлайн!</td>" +
 							"<td><img src='../images/headphones.png' height='48px' width='48px'></img></td>" +

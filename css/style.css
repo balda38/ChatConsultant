@@ -359,8 +359,12 @@ main {
 	box-sizing: border-box;
 	padding: 10px 20px;
 	margin: 0 0;
-    background: #CF6F55;
+    background: rgb(78, 76, 75);
 	resize: none;
+}
+.header-table tr td{
+    font-family: 'Roboto', sans-serif;
+    color: #FFFFFF;
 }
 .chat-with-user {
     opacity: 0;
@@ -374,7 +378,7 @@ main {
 	border: 1px solid #A0A9B1;
 	margin: 4px;
 	resize: none;
-	font-family: 'Jura', sans-serif; 
+	font-family: 'Roboto', sans-serif;
     opacity: 0;
 }
 .chat-window{
@@ -393,9 +397,9 @@ main {
 	word-wrap: break-word;
 	float: left;
 	margin: 10px;
-    padding: 0px 5px;
+    padding: 5px 5px;
 	text-align: left;
-	font-family: 'Jura', sans-serif; 
+	font-family: 'Roboto', sans-serif;
     background: #4DEFA9;
 	border: 1px solid #A0A9B1;
 	border-radius: 6px;
@@ -407,9 +411,9 @@ main {
 	word-wrap: break-word; 
 	float: right; 
 	margin: 10px;
-    padding: 0px 5px;
+    padding: 5px 5px;
 	text-align: right; 
-	font-family: 'Jura', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	background: #7397D4;
 	border: 1px solid #A0A9B1;
 	border-radius: 6px;

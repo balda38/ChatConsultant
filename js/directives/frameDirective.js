@@ -45,15 +45,15 @@ define(function(){
 								sessionStorage.setItem("consultLogin", response.data.login)
 							}
 							else {
-								btn.remove(); 
-								frame.remove(); 
+								//btn.remove(); 
+								//frame.remove(); 
 							}
 						}, function (error) {
-							btn.remove(); 
-							frame.remove(); 
+							//btn.remove(); 
+							//frame.remove(); 
 							console.log("Ошибка: " + error);
 						}); 
-
+						
 				window.onbeforeunload = function(e){
 					$http.post('/Clients/ChangeStatus', { name: sessionStorage.getItem("consultName"), status: false }, config)
 						.then(function (response) {
