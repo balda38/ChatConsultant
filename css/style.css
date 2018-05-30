@@ -337,13 +337,17 @@ main {
 	position: fixed;
 	bottom: 218px;
     right: 0px;
-    opacity: 0;
+    opacity: 1;
 }
 .chat-button:hover{ 
-	cursor: pointer;
+    cursor: pointer;
+    -webkit-transition: 400ms;
+    -moz-transition: 400ms;
+    -o-transition: 400ms;
+    transition: 400ms;
 }
 .chat-frame{
-    opacity: 0;
+    opacity: 1;
 }
 .chat-frame iframe{		
 	width: 16%;

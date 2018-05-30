@@ -7,7 +7,7 @@ define(function(){
 			restrict: 'EACM',			
 			template:
 				"<div class='chat-button' id='chatButton'>" +
-					"<img src='https://chat-consultant.azurewebsites.net/images/clck_block.png' class='clck-block' ng-click='hideChatWindow()'></img>" +
+					"<img src='https://chat-consultant.azurewebsites.net/images/chat_arrow.png' width='20' height='20' ng-click='hideChatWindow()'></img>" +
 				"</div>" +
 				"<div class='chat-frame' id='chatFrame'>" +
 					"<iframe name='chatWindow' id='chatWindow' src='https://chat-consultant.azurewebsites.net/views/chat.html' frameBorder='0'></iframe>" +
@@ -18,10 +18,12 @@ define(function(){
 				$scope.hideChatWindow = function(){
 					if(show){
 						document.getElementById('chatFrame').style.display = 'none';
+						document.getElementById('chatButton').style.transform = "scale(-1, 1)";	
 						show = false;
 					}
 					else{
 						document.getElementById('chatFrame').style.display = 'block';
+						document.getElementById('chatButton').style.transform = "scale(1, 1)";	
 						show = true;								
 					};												
 				};	
