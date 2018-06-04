@@ -84,7 +84,7 @@ define(function(){
 							var data = {
 								msgText: msg.value,
 								msgFrom: $scope.userName,
-								msgTo: "admin1"
+								msgTo: sessionStorage.getItem("consultLogin")
 							}
 							
 							if(nC == false){
@@ -110,7 +110,7 @@ define(function(){
 								$http.get('https://chatconsultantadminsclient.azurewebsites.net/Messages/GetLastAdminMessage', { params: { client: $scope.userName } }, config)
 								.then(function (response) {
 									console.log(response.data)
-									if(response.data != lastAdminMessage) {
+									if(response.data != lastAdminMessage && response.data != "late") {
 										updateList(response.data, 'admin');  
 										messagesService.addMessage(response.data, 'admin');
 									}							
