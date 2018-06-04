@@ -337,7 +337,7 @@ main {
 	position: fixed;
 	bottom: 218px;
     right: 0px;
-    opacity: 1;
+    opacity: 0;
 }
 .chat-button:hover{ 
     cursor: pointer;
@@ -347,7 +347,7 @@ main {
     transition: 400ms;
 }
 .chat-frame{
-    opacity: 1;
+    opacity: 0;
 }
 .chat-frame iframe{		
 	width: 16%;
