@@ -23,7 +23,7 @@ define(function(){
                     "<div id='chat2' class='chat-with-user'>" +
 					    "<ul id='messages' class='clear'>" +
 						    "<li class='admin-message-cloud'>Здравствуйте, {{userName}}!</li>" +
-						    "<br><br>" +
+						    "<br><br><br><br>" +
 					    "</ul>" +					    
                     "</div>" +
 			    "</div>"+
