@@ -117,7 +117,7 @@ define(function(){
 								}, function (error) {
 									console.log("Ошибка: " + error);
 								});      
-							}, 5000);
+							});
 						};		
 					};
 					
