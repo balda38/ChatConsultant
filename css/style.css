@@ -391,7 +391,7 @@ main {
 	overflow-x: hidden;
 	overflow-y: auto;
 	background: #FFF;
-    margin-bottom: 5px;
+    max-height: 60%;
     width: 100%;
 }
 .user-message-cloud{	
