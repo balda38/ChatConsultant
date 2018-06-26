@@ -37,7 +37,7 @@ define(function(){
 				var btn = document.getElementById("chatButton");
 				var frame = document.getElementById("chatFrame");
 				
-				$http.get('https://chatconsultantadminsclient.azurewebsites.net/Admins/GetAdmin', { params: { site: document.domain } }, config)
+				$http.get('https://chatconsultantadminsclient.azurewebsites.net/Admins/GetAdmin', { params: { site: "chat-consultant.azurewebsites.net" } }, config)
 					.then(function (response) { 
 							if(response.data != null) {								
 								btn.style.opacity = 1;

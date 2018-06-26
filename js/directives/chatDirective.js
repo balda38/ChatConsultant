@@ -80,7 +80,6 @@ define(function(){
 				var getMsgInt = undefined;
 
 				$scope.sendMessage = function(e){
-					clearInterval(getMsgInt);
 					if(e.keyCode == 13){						
 					    e.preventDefault();
 					    if (msg.value != "") {
@@ -98,7 +97,7 @@ define(function(){
 										}, function (error) {
 											console.log("Ошибка: " + error);
 										});	
-							}							
+							}						
 
 							$http.post('https://chatconsultantadminsclient.azurewebsites.net/Messages/AddMessage', { newMsg: data, role: "client" }, config)
 								.then(function (response) {
@@ -108,23 +107,23 @@ define(function(){
 									}, function (error) {
 										console.log("Ошибка: " + error);
 									});	
-									
-							getMsgInt = setInterval(function(){
-								$http.get('https://chatconsultantadminsclient.azurewebsites.net/Messages/GetLastAdminMessage', { params: { client: $scope.userName } }, config)
-								.then(function (response) {
-									console.log(response.data)
-									if(response.data != lastAdminMessage && response.data != "late") {
-										updateList(response.data, 'admin');  
-										messagesService.addMessage(response.data, 'admin');										
-									}							
-								}, function (error) {
-									console.log("Ошибка: " + error);
-								});      
-							});
 						};		
 					};
 					
 				};
+
+				setInterval(function(){
+					$http.get('https://chatconsultantadminsclient.azurewebsites.net/Messages/GetLastAdminMessage', { params: { client: $scope.userName } }, config)
+						.then(function (response) {
+							console.log(response.data)
+							if(response.data != lastAdminMessage && response.data != "late") {
+								updateList(response.data, 'admin');  
+								messagesService.addMessage(response.data, 'admin');										
+							}							
+						}, function (error) {
+							console.log("Ошибка: " + error);
+						});      
+				}, 1000);
 
 				$scope.goChat = function () {	
 				    if (document.getElementById("userName").value != "") {
