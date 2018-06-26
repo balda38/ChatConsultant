@@ -77,7 +77,10 @@ define(function(){
 					}); 
 				}	
 
+				var getMsgInt = undefined;
+
 				$scope.sendMessage = function(e){
+					clearInterval(getMsgInt);
 					if(e.keyCode == 13){						
 					    e.preventDefault();
 					    if (msg.value != "") {
@@ -106,13 +109,13 @@ define(function(){
 										console.log("Ошибка: " + error);
 									});	
 									
-							setInterval(function(){
+							getMsgInt = setInterval(function(){
 								$http.get('https://chatconsultantadminsclient.azurewebsites.net/Messages/GetLastAdminMessage', { params: { client: $scope.userName } }, config)
 								.then(function (response) {
 									console.log(response.data)
 									if(response.data != lastAdminMessage && response.data != "late") {
 										updateList(response.data, 'admin');  
-										messagesService.addMessage(response.data, 'admin');
+										messagesService.addMessage(response.data, 'admin');										
 									}							
 								}, function (error) {
 									console.log("Ошибка: " + error);
@@ -150,7 +153,7 @@ define(function(){
 					ul.appendChild(br);
 					ul.appendChild(br);		
 					
-					scrollToDown()
+					scrollToDown();
 				}
 
 				var chatWindow = document.getElementById('chatW');
